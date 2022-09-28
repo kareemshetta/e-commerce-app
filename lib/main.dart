@@ -4,6 +4,7 @@ import 'package:ecommerce_app/cubits/shop_screen_cubit/shop_register_cubit.dart'
 import 'package:ecommerce_app/screens/layout/home_screen.dart';
 import 'package:ecommerce_app/screens/products_screen.dart';
 import 'package:ecommerce_app/screens/register_screen.dart';
+import 'package:ecommerce_app/screens/search_screen.dart';
 import 'package:ecommerce_app/screens/shop_login_screen.dart';
 import 'package:ecommerce_app/styles/theme.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
             OnBoardingScreen.routeName: (ctx) => const OnBoardingScreen(),
             ProductsScreen.routeName: (ctx) => const ProductsScreen(),
             RegisterShopScreen.routeName: (ctx) => RegisterShopScreen(),
+            SearchScreen.routeName: (ctx) => SearchScreen()
           },
         ),
       ),

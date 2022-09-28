@@ -4,6 +4,7 @@ import 'package:ecommerce_app/models/categories_model.dart';
 import 'package:ecommerce_app/models/favourite_model.dart';
 import 'package:ecommerce_app/models/favourite_products.dart';
 import 'package:ecommerce_app/models/home_model.dart';
+import 'package:ecommerce_app/models/search_model.dart';
 import 'package:ecommerce_app/models/user_model.dart';
 import 'package:ecommerce_app/network/remote/dio_helper.dart';
 import 'package:ecommerce_app/network/remote/end_points.dart';
@@ -174,6 +175,29 @@ class ShopCubit extends Cubit<ShopState> {
         ShopUpdateUserProfileErrorState(),
       );
       print(e);
+    }
+  }
+
+  List<FoundedProduct> foundedProducts = [];
+
+  Future<void> getSearchData(String searchText) async {
+    foundedProducts = [];
+    emit(ShopSearchLoadingState());
+    try {
+      final response = await DioHelper.postData(
+          url: kGetSearch,
+          token: token,
+          lang: 'en',
+          data: {'text': searchText});
+      print(response.data);
+      //print('isfavourite:${searchModel!.searchModelData.foundedProduct[0].isFavourite}');
+      foundedProducts =
+          SearchModel.fromJson(response.data).searchModelData.foundedProduct;
+      print('isfavourite:${foundedProducts[0].isFavourite}');
+      emit(ShopSearchSuccessState());
+    } catch (err) {
+      print(err);
+      emit(ShopSearchErrorState());
     }
   }
 }

@@ -28,8 +28,8 @@ class FavouriteProductsData {
 
 class FavouriteProduct {
   int id;
-  int price;
-  int oldPrice;
+  dynamic price;
+  dynamic oldPrice;
   int discount;
   String image;
   String name;

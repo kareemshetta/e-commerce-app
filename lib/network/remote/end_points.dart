@@ -7,3 +7,4 @@ const kGETALLFAVOURITE = 'favorites';
 const kPROFILE = 'profile';
 const kRegister = 'register';
 const kGetProfile = 'update-profile';
+const kGetSearch = 'products/search';

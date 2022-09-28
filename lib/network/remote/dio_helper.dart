@@ -49,6 +49,9 @@ class DioHelper {
     // DioHelper.init();
     dio.options.headers.addAll({'lang': lang, 'authorization': token});
     // here we wait until get method get data
-    return await dio.get(url, queryParameters: queries);
+    return await dio.get(
+      url,
+      queryParameters: queries,
+    );
   }
 }
