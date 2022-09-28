@@ -22,6 +22,12 @@ class SearchScreen extends StatelessWidget {
         return Scaffold(
             appBar: AppBar(
               title: Text('search'),
+              leading: IconButton(
+                  onPressed: () {
+                    ShopCubit.get(context).foundedProducts = [];
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(Icons.arrow_back)),
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 6),
